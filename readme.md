@@ -28,4 +28,4 @@ Create a copy of the example variables file `cp variables.yml.example variables.
 
 Make sure the Foundry zip file is in the root of this project and called `foundryvtt.zip`.
 
-Run the playbook against your server, e.g. `ansible-playbook foundry_playbook.yml -i vtt.vidja.social,` (Note the comma after the domain, this tells ansible it's an address and not an inventory file).
+Run the playbook against your server, e.g. `ansible-playbook playbook.yml -i vtt.vidja.ca,` (Note the comma after the domain, this tells ansible it's an address and not an inventory file).
