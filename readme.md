@@ -1,4 +1,3 @@
-Guide steps copied from https://theelous3.net/how_to_set_up_foundryvtt_server
 Based playbook on https://gitlab.com/davefp/foundry-vtt-config/-/blob/main/foundry_playbook.yml
 
 # Foundry VTT Server Configuration
