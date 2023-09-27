@@ -1,0 +1,95 @@
+---
+- name: Fountry VTT installation
+  hosts: all
+  remote_user: root
+  vars_files:
+    - ./variables.yml
+  environment:
+    DATA_DIRECTORY: /home/foundry/data
+  tasks:
+    - name: Node GPG keys
+      apt_key:
+        url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+        state: present
+    - name: Caddy GPG keys
+      apt_key:
+        url: https://dl.cloudsmith.io/public/caddy/stable/gpg.key
+        state: present
+    - name: Node apt repo
+      apt_repository:
+        repo: deb https://deb.nodesource.com/node_14.x focal main
+        state: present
+    - name: Caddy apt repo
+      apt_repository:
+        repo: deb https://dl.cloudsmith.io/public/caddy/stable/deb/ubuntu focal main
+        state: present
+    - name: Dependencies
+      apt:
+        update_cache: yes
+        pkg:
+        - unzip
+        - nodejs
+        - caddy
+    - name: Foundry group
+      group:
+        name: foundry
+        state: present
+    - name: Foundry user
+      user:
+        name: foundry
+        group: foundry
+        shell: /bin/bash
+    - name: Foundry install directory
+      file:
+        path: /home/foundry/foundry_app
+        state: directory
+        owner: foundry
+        group: foundry
+        mode: '0744'
+    - name: Foundry data directory
+      file:
+        path: /home/foundry/foundry_data
+        state: directory
+        owner: foundry
+        group: foundry
+        mode: '0744'
+    - name: Foundry archive
+      copy:
+        src: ./foundryvtt.zip
+        dest: /home/foundry/foundryvtt.zip
+        owner: foundry
+        group: foundry
+        mode: '0744'
+      register: foundry_archive
+    - name: Foundry extract
+      unarchive:
+        src: /home/foundry/foundryvtt.zip
+        dest: /home/foundry/foundry_app
+        remote_src: yes
+        owner: foundry
+        group: foundry
+        mode: '0744'
+      when: foundry_archive.changed
+    - name: Caddyfile
+      template:
+        src: ./Caddyfile.j2
+        dest: /etc/caddy/Caddyfile
+        owner: caddy
+        group: caddy
+        mode: '0744'
+    - name: Foundry unit file
+      copy:
+        src: ./foundryvtt.service
+        dest: /etc/systemd/system/foundryvtt.service
+    - name: Refresh systemd
+      systemd:
+        daemon_reload: yes
+    - name: Foundry service
+      systemd:
+        name: foundryvtt.service
+        state: restarted
+    - name: Caddy service
+      systemd:
+        name: caddy.service
+        state: restarted
+

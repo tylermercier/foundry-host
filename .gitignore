@@ -1,0 +1,6 @@
+# Don't check in the foundry app itself
+foundryvtt.zip
+
+# Or the variables file
+variables.yml
+
