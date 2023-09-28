@@ -7,7 +7,7 @@ After=network.target
 Type=simple
 User=foundry
 Group=foundry
-ExecStart=/home/foundry/foundry_app/resources/app/main.js --dataPath=/home/foundry/foundry_data
+ExecStart=node /home/foundry/foundry_app/resources/app/main.js --dataPath=/home/foundry/foundry_data
 Restart=always
 RestartSec=10
 

@@ -1,4 +1,4 @@
-Based playbook on https://gitlab.com/davefp/foundry-vtt-config/-/blob/main/foundry_playbook.yml
+Based playbook on https://gitlab.com/davefp/foundry-vtt-config
 
 # Foundry VTT Server Configuration
 
