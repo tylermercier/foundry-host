@@ -19,7 +19,7 @@ Currently, the playbook will:
 
 * You already have a VPS running and DNS records pointing your desired domain at it.
 * You have a valid SSH key for your root user configured in your SSH agent.
-* You have Ansible installed and are reasonably familiar with it.
+* You have Ansible installed and are reasonably familiar with it. `brew install ansible`
 * You have a valid, licensed copy of the Foundry VTT server software in a zip file on your local machine
 
 ## Steps

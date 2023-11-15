@@ -14,3 +14,15 @@ Extract foundry
 
 Check foundry is running
 `node resources/app/main.js --dataPath=/home/foundry/foundrydata`
+
+Check/restart service
+
+
+
+```
+systemctl list-units --type=service
+...
+foundryvtt.service
+...
+sudo systemctl restart foundryvtt.service
+```
