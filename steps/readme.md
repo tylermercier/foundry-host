@@ -1,5 +1,8 @@
 Guide steps copied from https://theelous3.net/how_to_set_up_foundryvtt_server
 
+Restart the service
+`sudo systemctl restart foundryvtt.service`
+
 Copy file to server
 `rsync ~/Downloads/plutonium-foundry10.zip root@vtt.vidja.ca:/home`
 
