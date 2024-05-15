@@ -19,3 +19,6 @@ Install module location
 
 Common asset folder
 `/home/foundry/foundry_data/Data/shared`
+
+Copy folder from server (backups)
+`scp -r root@vtt.vidja.ca:/home/foundry/foundry_data/ backup`
