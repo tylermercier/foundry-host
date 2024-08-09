@@ -17,8 +17,6 @@ Check foundry is running
 
 Check/restart service
 
-
-
 ```
 systemctl list-units --type=service
 ...
