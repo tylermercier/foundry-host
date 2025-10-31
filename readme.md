@@ -34,6 +34,8 @@ Run the playbook against your server, e.g. `ansible-playbook playbook.yml -i vtt
 
 From the server, run `sudo systemctl restart foundryvtt.service`
 
+Logs `journalctl -u foundryvtt.service -b`
+
 ## Updating foundry
 
 Download the latest version
