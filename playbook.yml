@@ -17,7 +17,7 @@
         state: present
     - name: Node apt repo
       apt_repository:
-        repo: deb https://deb.nodesource.com/node_14.x focal main
+        repo: deb https://deb.nodesource.com/node_18.x focal main
         state: present
     - name: Caddy apt repo
       apt_repository:

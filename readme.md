@@ -29,3 +29,13 @@ Create a copy of the example variables file `cp variables.yml.example variables.
 Make sure the Foundry zip file is in the root of this project and called `foundryvtt.zip`.
 
 Run the playbook against your server, e.g. `ansible-playbook playbook.yml -i vtt.vidja.ca,` (Note the comma after the domain, this tells ansible it's an address and not an inventory file).
+
+## Restarting foundry
+
+From the server, run `sudo systemctl restart foundryvtt.service`
+
+## Updating foundry
+
+Download the latest version
+Rename the file to `foundryvtt.zip` and place it in the repo
+Run `ansible-playbook playbook.yml -i vtt.vidja.ca,`
