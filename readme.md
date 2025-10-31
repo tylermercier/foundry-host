@@ -37,5 +37,7 @@ From the server, run `sudo systemctl restart foundryvtt.service`
 ## Updating foundry
 
 Download the latest version
+
+
 Rename the file to `foundryvtt.zip` and place it in the repo
 Run `ansible-playbook playbook.yml -i vtt.vidja.ca,`
